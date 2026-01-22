@@ -123,3 +123,20 @@
     @apply bg-background text-foreground;
   }
 }
+
+@font-face {
+  font-family: Brillant;
+  src: url("/fonts/Brilliant.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Fancy;
+  src: url("/fonts/Fancy.ttf") format("truetype");
+}
+.brillant {
+  font-family: Brillant, sans-serif;
+}
+
+.fancy {
+  font-family: Fancy, sans-serif;
+}
