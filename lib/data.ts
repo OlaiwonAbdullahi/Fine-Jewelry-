@@ -89,4 +89,41 @@ export const ALL_PRODUCTS: Product[] = [
       "Alligator leather strap",
     ],
   },
+  {
+    id: 5,
+    name: "Diamond Stud Earrings",
+    price: "$4,500",
+    image: "/products/earrings.png",
+    images: ["/products/earrings.png"],
+    category: "Earrings",
+    description:
+      "Timeless brilliant-cut diamond studs set in 18k white gold settings.",
+    story:
+      "A staple of every jewelry collection, these diamonds are selected for their exceptional clarity and fire.",
+    details: ["18k White Gold", "0.5ct each diamond", "Total weight: 1.0ct"],
+  },
+  {
+    id: 6,
+    name: "Rose Gold Eternity Band",
+    price: "$3,800",
+    image: "/products/ring.png",
+    images: ["/products/ring.png"],
+    category: "Rings",
+    description: "A continuous circle of pavé-set diamonds in 18k rose gold.",
+    story:
+      "Symbolizing eternal love, this band is designed to be worn alone or stacked with other favorites.",
+    details: ["18k Rose Gold", "Pavé-set diamonds", "Width: 3mm"],
+  },
+  {
+    id: 7,
+    name: "Sapphire Pendant Necklace",
+    price: "$6,200",
+    image: "/products/necklace.png",
+    images: ["/products/necklace.png"],
+    category: "Necklaces",
+    description: "A deep blue Ceylon sapphire suspended from a platinum chain.",
+    story:
+      "The sapphire, known for its celestial blue hue, is the center of this elegant and minimalist design.",
+    details: ["Platinum 950", "2ct Ceylon Sapphire", "18-inch chain"],
+  },
 ];

@@ -111,7 +111,7 @@ const ProductDetailsPage = () => {
 
             {/* Actions */}
             <div className="space-y-6 mb-12">
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-row gap-4">
                 <button className="flex-1 py-4 bg-black text-white text-[11px] tracking-[0.3em] font-bold uppercase transition-all duration-500 hover:bg-neutral-800 flex items-center justify-center gap-3">
                   <IconShoppingBag size={18} strokeWidth={1} />
                   Add to Shopping Bag
