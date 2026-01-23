@@ -31,10 +31,25 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased selection:bg-black selection:text-white`}
       >
-        <Toaster position="top-right" richColors />
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <Navbar/>
+        {children}
+        <Toaster
+          position="bottom-right"
+          expand={false}
+          richColors
+          toastOptions={{
+            classNames: {
+              toast: "bg-emerald-primary border-gold-primary",
+              title: "text-cream-primary",
+              description: "text-cream-primary/80",
+              actionButton: "bg-gold-primary text-emerald-dark",
+              cancelButton: "bg-beige-pearl text-charcoal-dark",
+              closeButton:
+                "bg-gold-primary/20 text-gold-primary hover:bg-gold-primary hover:text-emerald-dark",
+            },
+          }}
+        />
+<Footer/>
       </body>
     </html>
   );
