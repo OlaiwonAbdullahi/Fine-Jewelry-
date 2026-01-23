@@ -118,8 +118,8 @@ export const ALL_PRODUCTS: Product[] = [
     id: 7,
     name: "Sapphire Pendant Necklace",
     price: "$6,200",
-    image: "/products/necklace.png",
-    images: ["/products/necklace.png"],
+    image: "/products/earrings.png",
+    images: ["/products/earrings.png"],
     category: "Necklaces",
     description: "A deep blue Ceylon sapphire suspended from a platinum chain.",
     story:

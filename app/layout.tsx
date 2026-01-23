@@ -31,7 +31,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased selection:bg-black selection:text-white`}
       >
-        <Navbar/>
+        <Navbar />
         {children}
         <Toaster
           position="bottom-right"
@@ -49,7 +49,7 @@ export default function RootLayout({
             },
           }}
         />
-<Footer/>
+        <Footer />
       </body>
     </html>
   );
