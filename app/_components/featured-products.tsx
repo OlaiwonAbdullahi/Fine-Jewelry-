@@ -1,38 +1,10 @@
 import React from "react";
 import Link from "next/link";
-import ProductCard, { Product } from "@/components/uis/productCard";
+import ProductCard from "@/components/uis/productCard";
+import { ALL_PRODUCTS } from "@/lib/data";
 
 const FeaturedProducts = () => {
-  const products: Product[] = [
-    {
-      id: 1,
-      name: "Solitaire Engagement Ring",
-      price: "$12,500",
-      image: "/products/ring.png",
-      category: "Engagement Rings",
-    },
-    {
-      id: 2,
-      name: "Classic Gold Bangle",
-      price: "$8,200",
-      image: "/products/bracelet.png",
-      category: "Bracelets",
-    },
-    {
-      id: 3,
-      name: "Emerald Drop Earrings",
-      price: "$15,400",
-      image: "/products/earrings.png",
-      category: "Earrings",
-    },
-    {
-      id: 4,
-      name: "Heritage Gold Watch",
-      price: "$22,000",
-      image: "/products/watch.png",
-      category: "Watches",
-    },
-  ];
+  const products = ALL_PRODUCTS;
 
   return (
     <section className="py-24 px-6 lg:px-12 bg-white">
