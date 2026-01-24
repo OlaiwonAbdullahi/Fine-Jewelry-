@@ -3,9 +3,10 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import { X, ChevronRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+
 import { useUIStore } from "@/store";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 const navigationLinks = [
   { label: "Collections", href: "/collections" },
