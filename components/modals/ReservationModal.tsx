@@ -10,7 +10,6 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
   Select,
@@ -78,36 +77,39 @@ export default function ReservationModal() {
           {/* Personal Info */}
           <div className="space-y-2">
             <Label htmlFor="name">Full Name</Label>
-            <Input
+            <input
               id="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="John Doe"
               required
+              className="w-full h-11 px-4 text-sm tracking-wide border border-border/30 focus:border-foreground outline-none transition-all rounded-none bg-transparent placeholder:text-foreground/20"
             />
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
-              <Input
+              <input
                 id="email"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="john@example.com"
                 required
+                className="w-full h-11 px-4 text-sm tracking-wide border border-border/30 focus:border-foreground outline-none transition-all rounded-none bg-transparent placeholder:text-foreground/20"
               />
             </div>
             <div className="space-y-2">
               <Label htmlFor="phone">Phone</Label>
-              <Input
+              <input
                 id="phone"
                 type="tel"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="+1 (555) 000-0000"
                 required
+                className="w-full h-11 px-4 text-sm tracking-wide border border-border/30 focus:border-foreground outline-none transition-all rounded-none bg-transparent placeholder:text-foreground/20"
               />
             </div>
           </div>
@@ -137,13 +139,14 @@ export default function ReservationModal() {
                 <Calendar className="inline h-4 w-4 mr-1" />
                 Date
               </Label>
-              <Input
+              <input
                 id="date"
                 type="date"
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
                 min={new Date().toISOString().split("T")[0]}
                 required
+                className="w-full h-11 px-4 text-sm tracking-wide border border-border/30 focus:border-foreground outline-none transition-all rounded-none bg-transparent placeholder:text-foreground/20"
               />
             </div>
             <div className="space-y-2">
