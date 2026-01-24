@@ -3,7 +3,6 @@
 // import { Button } from "@/components/ui/button";
 // import { Input } from "@/components/ui/Input";
 
-
 // export default function Footer() {
 //   return (
 //     <footer className="bg-emerald-primary text-cream-primary mt-auto">

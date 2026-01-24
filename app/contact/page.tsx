@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Phone, Mail, MessageSquare } from "lucide-react";
 
@@ -98,9 +97,9 @@ export default function ContactUs() {
                 >
                   First Name
                 </Label>
-                <Input
+                <input
                   id="firstName"
-                  className="rounded-none border-0 border-b border-beige-warm focus-visible:ring-0 focus-visible:border-charcoal-dark px-0"
+                  className="w-full rounded-none border-0 border-b border-beige-warm bg-transparent focus:outline-none focus:border-charcoal-dark px-0 h-10 fancy text-sm"
                 />
               </div>
               <div className="space-y-2">
@@ -110,9 +109,9 @@ export default function ContactUs() {
                 >
                   Last Name
                 </Label>
-                <Input
+                <input
                   id="lastName"
-                  className="rounded-none border-0 border-b border-beige-warm focus-visible:ring-0 focus-visible:border-charcoal-dark px-0"
+                  className="w-full rounded-none border-0 border-b border-beige-warm bg-transparent focus:outline-none focus:border-charcoal-dark px-0 h-10 fancy text-sm"
                 />
               </div>
             </div>
@@ -123,10 +122,10 @@ export default function ContactUs() {
               >
                 Email
               </Label>
-              <Input
+              <input
                 id="email"
                 type="email"
-                className="rounded-none border-0 border-b border-beige-warm focus-visible:ring-0 focus-visible:border-charcoal-dark px-0"
+                className="w-full rounded-none border-0 border-b border-beige-warm bg-transparent focus:outline-none focus:border-charcoal-dark px-0 h-10 fancy text-sm"
               />
             </div>
             <div className="space-y-2">
