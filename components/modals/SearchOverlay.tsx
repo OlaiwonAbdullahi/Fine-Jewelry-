@@ -3,8 +3,6 @@
 import { useState, useEffect } from "react";
 import { IconSearch, IconX, IconArrowRight } from "@tabler/icons-react";
 import { useUIStore } from "@/store";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 

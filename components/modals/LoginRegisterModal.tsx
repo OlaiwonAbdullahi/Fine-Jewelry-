@@ -10,7 +10,6 @@ import {
 } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { toast } from "sonner";
@@ -101,14 +100,14 @@ export default function LoginRegisterModal() {
                   >
                     Email Address
                   </Label>
-                  <Input
+                  <input
                     id="login-email"
                     type="email"
                     placeholder="your@email.com"
                     value={loginEmail}
                     onChange={(e) => setLoginEmail(e.target.value)}
                     required
-                    className="h-11 text-sm tracking-wide border-border/30 focus-visible:ring-0 focus-visible:border-foreground transition-all rounded-none"
+                    className="w-full h-11 px-4 text-sm tracking-wide border border-border/30 focus:border-foreground outline-none transition-all rounded-none bg-transparent placeholder:text-foreground/20"
                   />
                 </div>
 
@@ -119,14 +118,14 @@ export default function LoginRegisterModal() {
                   >
                     Password
                   </Label>
-                  <Input
+                  <input
                     id="login-password"
                     type="password"
                     placeholder="••••••••"
                     value={loginPassword}
                     onChange={(e) => setLoginPassword(e.target.value)}
                     required
-                    className="h-11 text-sm tracking-wide border-border/30 focus-visible:ring-0 focus-visible:border-foreground transition-all rounded-none"
+                    className="w-full h-11 px-4 text-sm tracking-wide border border-border/30 focus:border-foreground outline-none transition-all rounded-none bg-transparent placeholder:text-foreground/20"
                   />
                 </div>
 
@@ -156,14 +155,14 @@ export default function LoginRegisterModal() {
                   >
                     Full Name
                   </Label>
-                  <Input
+                  <input
                     id="register-name"
                     type="text"
                     placeholder="John Doe"
                     value={registerName}
                     onChange={(e) => setRegisterName(e.target.value)}
                     required
-                    className="h-11 text-sm tracking-wide border-border/30 focus-visible:ring-0 focus-visible:border-foreground transition-all rounded-none"
+                    className="w-full h-11 px-4 text-sm tracking-wide border border-border/30 focus:border-foreground outline-none transition-all rounded-none bg-transparent placeholder:text-foreground/20"
                   />
                 </div>
 
@@ -174,14 +173,14 @@ export default function LoginRegisterModal() {
                   >
                     Email Address
                   </Label>
-                  <Input
+                  <input
                     id="register-email"
                     type="email"
                     placeholder="your@email.com"
                     value={registerEmail}
                     onChange={(e) => setRegisterEmail(e.target.value)}
                     required
-                    className="h-11 text-sm tracking-wide border-border/30 focus-visible:ring-0 focus-visible:border-foreground transition-all rounded-none"
+                    className="w-full h-11 px-4 text-sm tracking-wide border border-border/30 focus:border-foreground outline-none transition-all rounded-none bg-transparent placeholder:text-foreground/20"
                   />
                 </div>
 
@@ -192,7 +191,7 @@ export default function LoginRegisterModal() {
                   >
                     Password
                   </Label>
-                  <Input
+                  <input
                     id="register-password"
                     type="password"
                     placeholder="••••••••"
@@ -200,7 +199,7 @@ export default function LoginRegisterModal() {
                     onChange={(e) => setRegisterPassword(e.target.value)}
                     required
                     minLength={8}
-                    className="h-11 text-sm tracking-wide border-border/30 focus-visible:ring-0 focus-visible:border-foreground transition-all rounded-none"
+                    className="w-full h-11 px-4 text-sm tracking-wide border border-border/30 focus:border-foreground outline-none transition-all rounded-none bg-transparent placeholder:text-foreground/20"
                   />
                 </div>
 
