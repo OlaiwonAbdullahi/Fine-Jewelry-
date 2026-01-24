@@ -28,11 +28,12 @@ const Page = () => {
 
       // Material filter
       if (selectedMaterials.length > 0) {
-        const hasMaterial = (product.details ?? []).some((detail) =>
-          selectedMaterials.some((mat) =>
-            detail.toLowerCase().includes(mat.toLowerCase()),
-          ),
-        );
+        const hasMaterial =
+          product.details?.some((detail) =>
+            selectedMaterials.some((mat) =>
+              detail.toLowerCase().includes(mat.toLowerCase()),
+            ),
+          ) ?? false;
 
         if (!hasMaterial) return false;
       }
