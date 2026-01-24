@@ -1,7 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Root } from "@radix-ui/react-slot";
 import Link from "next/link";
-import RootLayout from "./layout";
 
 export default function NotFound() {
   return (

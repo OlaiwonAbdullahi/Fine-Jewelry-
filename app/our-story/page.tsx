@@ -121,8 +121,8 @@ export default function OurStory() {
         <div className="container relative z-10 mx-auto px-4 text-center">
           <FadeIn>
             <blockquote className="brillant text-3xl md:text-6xl text-cream-primary leading-tight max-w-5xl mx-auto">
-              "Jewelry is not just an accessory. It is a memory, captured in
-              gold and stone."
+              &apos;Jewelry is not just an accessory. It is a memory, captured
+              in gold and stone.&apos;
             </blockquote>
           </FadeIn>
           <FadeIn delay={0.2}>
