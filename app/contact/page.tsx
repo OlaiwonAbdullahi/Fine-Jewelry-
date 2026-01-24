@@ -6,7 +6,6 @@ import { Phone, Mail, MessageSquare } from "lucide-react";
 export default function ContactUs() {
   return (
     <div className="bg-white min-h-screen">
-      {/* --- Hero Section --- */}
       <section className="grid md:grid-cols-2 items-center bg-white border-b border-beige-warm overflow-hidden">
         <div className="relative h-[300px] md:h-[500px] bg-[#f7f7f7]">
           <img
@@ -26,10 +25,8 @@ export default function ContactUs() {
         </div>
       </section>
 
-      {/* --- Main Contact Grid Section --- */}
       <div className="container mx-auto px-4 py-20 max-w-6xl">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-20">
-          {/* CALL US */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <Phone className="w-5 h-5 stroke-[1.5px] text-charcoal-dark" />
@@ -50,12 +47,11 @@ export default function ContactUs() {
               className="group relative cursor-pointer inline-block fancy text-lg pt-2"
             >
               <span>Tel. 1.800.123.4567</span>
-              {/* Decrease left animation */}
+
               <span className="absolute bottom-0 left-0 w-full h-[1px] bg-charcoal-dark/40 transition-transform duration-300 origin-left group-hover:scale-x-0"></span>
             </a>
           </div>
 
-          {/* E-MAIL US */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <Mail className="w-5 h-5 stroke-[1.5px] text-charcoal-dark" />
@@ -71,12 +67,11 @@ export default function ContactUs() {
               className="group relative cursor-pointer inline-block fancy text-[15px] pt-4"
             >
               <span>Send an e-mail</span>
-              {/* Decrease left animation */}
+
               <span className="absolute bottom-0 left-0 w-full h-[1px] bg-charcoal-dark transition-transform duration-300 origin-left group-hover:scale-x-0"></span>
             </a>
           </div>
 
-          {/* LIVE CHAT */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <MessageSquare className="w-5 h-5 stroke-[1.5px] text-charcoal-dark" />
@@ -90,7 +85,6 @@ export default function ContactUs() {
           </div>
         </div>
 
-        {/* --- Inquiry Form --- */}
         <div className="mt-32 max-w-2xl mx-auto border-t border-beige-warm pt-20">
           <h3 className="brillant text-2xl text-center mb-12 uppercase tracking-widest">
             Inquiry Form
@@ -150,7 +144,6 @@ export default function ContactUs() {
             </div>
 
             <div className="flex justify-center pt-10">
-              {/* Updated Animated Button */}
               <Button
                 variant="outline"
                 className="group relative overflow-hidden rounded-none border border-gold-primary/50 bg-transparent px-12 py-8 text-emerald-primary transition-all hover:border-gold-primary hover:bg-transparent"
