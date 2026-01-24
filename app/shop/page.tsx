@@ -13,7 +13,7 @@ const Page = () => {
   const [sortBy, setSortBy] = useState("Newest");
 
   const filteredProducts = useMemo(() => {
-    let result = ALL_PRODUCTS.filter((product) => {
+    const result = ALL_PRODUCTS.filter((product) => {
       // Category filter
       if (
         selectedCategories.length > 0 &&
@@ -28,11 +28,12 @@ const Page = () => {
 
       // Material filter
       if (selectedMaterials.length > 0) {
-        const hasMaterial = product.details.some((detail) =>
+        const hasMaterial = (product.details ?? []).some((detail) =>
           selectedMaterials.some((mat) =>
             detail.toLowerCase().includes(mat.toLowerCase()),
           ),
         );
+
         if (!hasMaterial) return false;
       }
 
@@ -69,7 +70,7 @@ const Page = () => {
       );
     } else {
       // Default: Newest (highest ID first)
-      result.sort((a, b) => b.id - a.id);
+      result.sort((a, b) => Number(b.id) - Number(a.id));
     }
 
     return result;
