@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   IconSearch,
   IconUser,
@@ -19,13 +20,14 @@ const NAV_LINKS = [
   { name: "HIGH JEWELRY", href: "/high-jewelry" },
   { name: "COLLECTIONS", href: "/collections" },
   { name: "WATCHES", href: "/watches" },
-  { name: "ENGAGEMENT", href: "/engagement" },
-  { name: "ART OF LIVING", href: "/art-of-living" },
-  { name: "GIFTS", href: "/gifts" },
-  { name: "SERVICES", href: "/services" },
+  { name: "SHOP", href: "/shop" },
+  { name: "OUR TEAM", href: "/our-team" },
+  { name: "OUR STORY", href: "/our-story" },
+  { name: "CONTACT US", href: "/contact" },
 ];
 
 const Navbar = () => {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -136,20 +138,33 @@ const Navbar = () => {
       >
         <div className="max-w-[1800px] mx-auto">
           <ul className="flex items-center justify-center gap-10 xl:gap-14 py-5 font-normal">
-            {NAV_LINKS.map((link) => (
-              <li key={link.name} className="relative group">
-                <Link
-                  href={link.href}
-                  className="text-[10px] tracking-[0.25em] font-light text-foreground/70 hover:text-foreground transition-all duration-500 py-1 inline-flex items-center gap-1 uppercase"
-                >
-                  {link.name}
-                </Link>
-                <motion.div
-                  initial={false}
-                  className="absolute -bottom-px left-0 right-0 h-px bg-foreground/80 scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-in-out origin-left"
-                />
-              </li>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <li key={link.name} className="relative group">
+                  <Link
+                    href={link.href}
+                    className={cn(
+                      "text-[10px] tracking-[0.25em] font-light transition-all duration-500 py-1 inline-flex items-center gap-1 uppercase",
+                      isActive
+                        ? "text-foreground font-medium"
+                        : "text-foreground/70 hover:text-foreground",
+                    )}
+                  >
+                    {link.name}
+                  </Link>
+                  <motion.div
+                    initial={false}
+                    className={cn(
+                      "absolute -bottom-px left-0 right-0 h-px bg-foreground/80 transition-transform duration-700 ease-in-out origin-left",
+                      isActive
+                        ? "scale-x-100"
+                        : "scale-x-0 group-hover:scale-x-100",
+                    )}
+                  />
+                </li>
+              );
+            })}
           </ul>
         </div>
       </nav>
@@ -248,24 +263,39 @@ const Navbar = () => {
 
               <div className="flex-1 overflow-y-auto px-6 py-8">
                 <ul className="space-y-7">
-                  {NAV_LINKS.map((link) => (
-                    <li key={link.name}>
-                      <Link
-                        href={link.href}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="flex items-center justify-between group"
-                      >
-                        <span className="text-sm tracking-[0.3em] font-light text-foreground/90 group-hover:pl-2 transition-all duration-300 uppercase">
-                          {link.name}
-                        </span>
-                        <IconChevronDown
-                          size={14}
-                          strokeWidth={1}
-                          className="-rotate-90 text-foreground/30 group-hover:text-foreground transition-colors"
-                        />
-                      </Link>
-                    </li>
-                  ))}
+                  {NAV_LINKS.map((link) => {
+                    const isActive = pathname === link.href;
+                    return (
+                      <li key={link.name}>
+                        <Link
+                          href={link.href}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="flex items-center justify-between group"
+                        >
+                          <span
+                            className={cn(
+                              "text-sm tracking-[0.3em] font-light group-hover:pl-2 transition-all duration-300 uppercase",
+                              isActive
+                                ? "text-foreground font-medium pl-2"
+                                : "text-foreground/90",
+                            )}
+                          >
+                            {link.name}
+                          </span>
+                          <IconChevronDown
+                            size={14}
+                            strokeWidth={1}
+                            className={cn(
+                              "-rotate-90 transition-colors",
+                              isActive
+                                ? "text-foreground"
+                                : "text-foreground/30 group-hover:text-foreground",
+                            )}
+                          />
+                        </Link>
+                      </li>
+                    );
+                  })}
                 </ul>
 
                 <div className="mt-16 pt-12 border-t border-border/10 space-y-6">
