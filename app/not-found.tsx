@@ -1,10 +1,12 @@
-import PageLayout from "@/components/layout/PageLayout";
+
 import { Button } from "@/components/ui/button";
+import { Root } from "@radix-ui/react-slot";
 import Link from "next/link";
+import RootLayout from "./layout";
 
 export default function NotFound() {
   return (
-    <PageLayout>
+   
       <div className="flex flex-col items-center justify-center min-h-[70vh] bg-cream-primary px-4 text-center">
         <h1 className="brillant text-9xl text-gold-muted/50 mb-4 select-none">
           404
@@ -34,6 +36,6 @@ export default function NotFound() {
           </Link>
         </div>
       </div>
-    </PageLayout>
+   
   );
 }
