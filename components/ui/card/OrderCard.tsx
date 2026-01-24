@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Package, TruckIcon, CheckCircle, Clock } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/badge";
 
 export type OrderStatus = "processing" | "shipped" | "delivered" | "cancelled";
