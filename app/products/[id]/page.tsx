@@ -100,7 +100,7 @@ const ProductDetailsPage = () => {
               <h1 className="brillant text-4xl lg:text-5xl text-foreground mb-6 leading-tight uppercase font-medium">
                 {product.name}
               </h1>
-              <p className="text-xl lg:text-2xl tracking-widest text-[#1a3d32] font-semibold mb-8">
+              <p className="text-xl lg:text-2xl tracking-widest text-emerald-primary font-semibold mb-8">
                 {product.price}
               </p>
               <p className="text-sm leading-relaxed text-foreground/60 font-light tracking-wide max-w-md uppercase">
