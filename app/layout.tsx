@@ -4,6 +4,11 @@ import "./globals.css";
 import Navbar from "./_components/navbar";
 import Footer from "./_components/footer";
 import { Toaster } from "sonner";
+import SearchOverlay from "@/components/modals/SearchOverlay";
+import LoginRegisterModal from "@/components/modals/LoginRegisterModal";
+import MiniCartSlideIn from "@/components/modals/MiniCartSlideIn";
+import ReservationModal from "@/components/modals/ReservationModal";
+import QuickViewModal from "@/components/modals/QuickViewModal";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,6 +38,11 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
+        <SearchOverlay />
+        <LoginRegisterModal />
+        <MiniCartSlideIn />
+        <ReservationModal />
+        <QuickViewModal />
         <Toaster
           position="bottom-right"
           expand={false}
