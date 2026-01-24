@@ -18,12 +18,12 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 
 const ProductDetailsPage = () => {
-  const { id } = useParams();
+  const params = useParams<{ id: string }>();
+  const id = params?.id;
+
   const product =
     ALL_PRODUCTS.find((p) => p.id.toString() === id) || ALL_PRODUCTS[0];
 
