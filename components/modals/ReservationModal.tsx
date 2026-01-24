@@ -166,7 +166,11 @@ export default function ReservationModal() {
             </div>
           </div>
 
-          <Button type="submit" variant="gold" className="w-full">
+          <Button
+            type="submit"
+            variant="default"
+            className="w-full bg-gold-primary"
+          >
             Confirm Reservation
           </Button>
         </form>

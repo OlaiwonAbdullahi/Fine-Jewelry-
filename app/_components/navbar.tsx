@@ -14,6 +14,10 @@ import {
 } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useUIStore, useCartStore, selectCartCount } from "@/store";
+import SearchOverlay from "@/components/modals/SearchOverlay";
+import MiniCartSlideIn from "@/components/modals/MiniCartSlideIn";
+import LoginRegisterModal from "@/components/modals/LoginRegisterModal";
 import Image from "next/image";
 
 const NAV_LINKS = [
@@ -28,9 +32,10 @@ const NAV_LINKS = [
 
 const Navbar = () => {
   const pathname = usePathname();
+  const { openModal } = useUIStore();
+  const cartCount = useCartStore(selectCartCount);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,7 +61,7 @@ const Navbar = () => {
           <div className="flex items-center justify-between px-6 lg:px-12 py-3 lg:py-5">
             <div
               className="flex-1 hidden lg:flex items-center gap-3 group cursor-pointer"
-              onClick={() => setIsSearchOpen(true)}
+              onClick={() => openModal("search")}
             >
               <IconSearch
                 size={19}
@@ -80,8 +85,8 @@ const Navbar = () => {
             </Link>
 
             <div className="flex-1 flex items-center justify-end">
-              <Link
-                href="/account"
+              <button
+                onClick={() => openModal("login")}
                 className="hidden sm:flex flex-col items-center group p-1"
               >
                 <IconUser
@@ -92,7 +97,7 @@ const Navbar = () => {
                 <span className="text-[10px] tracking-[0.15em] opacity-0 group-hover:opacity-100 transition-all duration-300 uppercase mt-1">
                   Account
                 </span>
-              </Link>
+              </button>
               <Link
                 href="/wishlist"
                 className="flex flex-col items-center group p-1"
@@ -106,8 +111,8 @@ const Navbar = () => {
                   Wishlist
                 </span>
               </Link>
-              <Link
-                href="/cart"
+              <button
+                onClick={() => openModal("miniCart")}
                 className="flex flex-col items-center group p-1"
               >
                 <div className="relative">
@@ -116,14 +121,16 @@ const Navbar = () => {
                     strokeWidth={1}
                     className="text-foreground/70 group-hover:text-foreground transition-all duration-300"
                   />
-                  <span className="absolute -top-1 -right-1 bg-[#1a3d32] text-white text-[7px] w-3.5 h-3.5 flex items-center justify-center rounded-full">
-                    0
-                  </span>
+                  {cartCount > 0 && (
+                    <span className="absolute -top-1 -right-1 bg-[#1a3d32] text-white text-[7px] w-3.5 h-3.5 flex items-center justify-center rounded-full">
+                      {cartCount}
+                    </span>
+                  )}
                 </div>
                 <span className="text-[10px] tracking-[0.15em] opacity-0 group-hover:opacity-100 transition-all duration-300 uppercase mt-1">
                   Bag
                 </span>
-              </Link>
+              </button>
             </div>
           </div>
         </div>
@@ -169,69 +176,10 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Search Overlay */}
-      <AnimatePresence>
-        {isSearchOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed top-0 left-0 right-0 bg-white border-b border-border/20 z-60 overflow-hidden shadow-2xl"
-          >
-            <div className="max-w-4xl mx-auto px-6 py-12">
-              <div className="flex items-center gap-6 border-b border-foreground/10 pb-4">
-                <IconSearch
-                  size={28}
-                  strokeWidth={1}
-                  className="text-foreground/40"
-                />
-                <input
-                  autoFocus
-                  type="text"
-                  placeholder="WHAT ARE YOU LOOKING FOR?"
-                  className="bg-transparent border-none outline-none text-xl sm:text-2xl tracking-widest w-full placeholder:text-foreground/20 font-light"
-                  onKeyDown={(e) =>
-                    e.key === "Escape" && setIsSearchOpen(false)
-                  }
-                />
-                <button
-                  onClick={() => setIsSearchOpen(false)}
-                  className="p-2 hover:rotate-90 transition-transform duration-300"
-                >
-                  <IconX
-                    size={28}
-                    strokeWidth={1}
-                    className="text-foreground/60"
-                  />
-                </button>
-              </div>
-              <div className="mt-10">
-                <h3 className="text-[10px] tracking-[0.3em] text-foreground/40 font-bold mb-6 uppercase">
-                  Suggestion Collections
-                </h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                  {[
-                    "Love Collections",
-                    "Trinity Bands",
-                    "Panthère de Cartier",
-                    "Santos de Cartier",
-                  ].map((item) => (
-                    <div key={item} className="group cursor-pointer">
-                      <div className="aspect-4/3 bg-neutral-100 mb-3 overflow-hidden">
-                        <div className="w-full h-full group-hover:scale-105 transition-transform duration-700 bg-neutral-200" />
-                      </div>
-                      <span className="text-[10px] tracking-widest text-foreground/70 group-hover:text-foreground uppercase">
-                        {item}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Modals */}
+      <SearchOverlay />
+      <MiniCartSlideIn />
+      <LoginRegisterModal />
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
@@ -327,18 +275,22 @@ const Navbar = () => {
               </div>
 
               <div className="p-8 bg-neutral-50 mt-auto">
-                <div className="flex gap-4 items-center">
+                <button
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    openModal("search");
+                  }}
+                  className="flex gap-4 items-center w-full group"
+                >
                   <IconSearch
                     size={18}
                     strokeWidth={1}
-                    className="text-foreground/30"
+                    className="text-foreground/30 group-hover:text-foreground transition-colors"
                   />
-                  <input
-                    type="text"
-                    placeholder="SEARCH"
-                    className="bg-transparent border-none outline-none text-[11px] tracking-[0.3em] w-full placeholder:text-foreground/20 font-medium"
-                  />
-                </div>
+                  <span className="text-[11px] tracking-[0.3em] text-foreground/40 group-hover:text-foreground font-medium transition-colors uppercase">
+                    Search
+                  </span>
+                </button>
               </div>
             </motion.div>
           </>

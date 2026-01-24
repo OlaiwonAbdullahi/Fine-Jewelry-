@@ -122,8 +122,8 @@ export default function QuickViewModal() {
 
             <div className="space-y-3">
               <Button
-                variant="gold"
-                className="w-full"
+                variant="default"
+                className="w-full bg-gold-primary"
                 onClick={handleAddToCart}
               >
                 <ShoppingBag className="mr-2 h-4 w-4" />
