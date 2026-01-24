@@ -8,7 +8,7 @@ const FeaturedProducts = () => {
 
   return (
     <section className="py-24 px-6 lg:px-12 bg-white">
-      <div className="max-w-[1400px] mx-auto">
+      <div className="max-w-350 mx-auto">
         <div className="text-center mb-16">
           <span className="text-[10px] tracking-[0.4em] font-medium text-foreground/40 uppercase mb-4 block">
             Selection
