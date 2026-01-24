@@ -178,13 +178,22 @@ const OrderCard = ({ order }: OrderCardProps) => {
         </Button>
 
         {order.status === "delivered" && (
-          <Button variant="gold" size="sm" className="flex-1">
+          <Button
+            variant="default"
+            size="sm"
+            className="flex-1 bg-gold-primary"
+          >
             Reorder
           </Button>
         )}
 
         {order.status === "shipped" && order.trackingNumber && (
-          <Button variant="gold" size="sm" className="flex-1" asChild>
+          <Button
+            variant="default"
+            size="sm"
+            className="flex-1 bg-gold-primary"
+            asChild
+          >
             <a
               href={`https://track.example.com/${order.trackingNumber}`}
               target="_blank"

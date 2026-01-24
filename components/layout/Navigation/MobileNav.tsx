@@ -77,7 +77,7 @@ export default function MobileNav() {
         </nav>
 
         <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-beige-warm bg-cream-primary">
-          <Button variant="gold" className="w-full" asChild>
+          <Button variant="default" className="w-full bg-gold-primary" asChild>
             <Link href="/collections">Shop Now</Link>
           </Button>
         </div>
