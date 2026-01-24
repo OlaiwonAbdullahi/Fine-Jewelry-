@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 import { Root } from "@radix-ui/react-slot";
 import Link from "next/link";
 import RootLayout from "./layout";

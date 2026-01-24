@@ -4,7 +4,6 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Package, TruckIcon, CheckCircle, Clock } from "lucide-react";
-import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/badge";
 
 export type OrderStatus = "processing" | "shipped" | "delivered" | "cancelled";
@@ -173,35 +172,28 @@ const OrderCard = ({ order }: OrderCardProps) => {
       </div>
 
       <div className="p-4 md:p-6 pt-0 flex gap-2">
-        <Button variant="outline" size="sm" className="flex-1" asChild>
-          <Link href={`/account/orders/${order.id}`}>View Details</Link>
-        </Button>
+        <Link
+          href={`/account/orders/${order.id}`}
+          className="flex-1 inline-flex items-center justify-center rounded-md text-sm font-medium border border-beige-warm bg-white px-4 py-2 hover:bg-beige-pearl transition-colors"
+        >
+          View Details
+        </Link>
 
         {order.status === "delivered" && (
-          <Button
-            variant="default"
-            size="sm"
-            className="flex-1 bg-gold-primary"
-          >
+          <button className="flex-1 inline-flex items-center justify-center rounded-md text-sm font-medium bg-gold-primary text-white px-4 py-2 hover:bg-gold-primary/90 transition-colors">
             Reorder
-          </Button>
+          </button>
         )}
 
         {order.status === "shipped" && order.trackingNumber && (
-          <Button
-            variant="default"
-            size="sm"
-            className="flex-1 bg-gold-primary"
-            asChild
+          <a
+            href={`https://track.example.com/${order.trackingNumber}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 inline-flex items-center justify-center rounded-md text-sm font-medium bg-gold-primary text-white px-4 py-2 hover:bg-gold-primary/90 transition-colors"
           >
-            <a
-              href={`https://track.example.com/${order.trackingNumber}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Track Order
-            </a>
-          </Button>
+            Track Order
+          </a>
         )}
       </div>
     </div>
